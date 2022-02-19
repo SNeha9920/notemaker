@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./journal.css" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <title>Journal</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-3 left p-0">
+          <div class="inner-div">
+            <div class="title">
+              <a href="{% url 'editor' %}">
+                <p>My Journal</p>
+              </a>
+            </div>
+            <ul>
+            {% for doc in documents %}
+              <li><a href="{% url 'editor' %}?docid={{ doc.id }}">{{ doc.title }}</a></li>
+             {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-9 p-0 d-flex align-items-center justify-content-center">
+
+        	<form method="post" action="{% url 'editor' %}">
+                {% csrf_token %}
+                <input type="hidden" name="docid" value="{{ docid }}">
+
+          <div class="book container-fluid p-4 px-5">
+            <h1><input type="text" class="input" name="title" placeholder="Title"{% if document %} value="{{ document.title }}"{% endif %}></h1>
+            {% if document %}
+                                    <span class="has-text-grey-light">
+                                        Created at: {{ document.created_at|date:"m/d Y" }} / 
+                                        Modified at: {{ document.modified_at|date:"m/d Y" }}
+                                    </span>
+                                {% endif %}
+            <hr>
+            <p>
+              <textarea class="textarea" name="content" placeholder="Content">{% if document %}{{ document.content }}{% endif %}</textarea>
+            </p>
+          
+          </div>
+          <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-primary">Save</button>
+                            </div>
+                            {% if document %}
+                                <div class="control">
+                                    <a href="{% url 'delete_document' document.id %}" class="button is-danger">Delete</a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

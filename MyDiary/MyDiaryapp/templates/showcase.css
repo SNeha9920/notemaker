@@ -1,0 +1,61 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(236, 236, 236);
+}
+
+.title {
+  background-color: rgb(115, 207, 107);
+  color: white;
+  padding: 0.5rem;
+}
+
+.container {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.journal {
+  background-color: white;
+  aspect-ratio: 3/4;
+  width: 10rem;
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2rem;
+  transition: 0.3s ease;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.journal a {
+  position: absolute;
+  bottom: -1.5rem;
+}
+
+.journal button {
+  background-color: rgb(107, 125, 207);
+  outline: none;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.journal button:hover {
+  opacity: 1;
+}
+
+.journal:hover {
+  box-shadow: 0 0 10px 2px rgba(181, 181, 181, 0.353);
+  transform: scale(1.05);
+}
+
+h2 {
+  margin: 0;
+}
