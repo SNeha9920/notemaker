@@ -1,0 +1,58 @@
+what is django?
+MVC
+MVC VS MVT
+how to install django in venv?
+how to creteproject?
+files usage of project? (What is postgresql and DB connection)
+what are django apps?
+how to createapp?
+file usage of apps?
+
+settings.py
+models.py
+views.py
+urls.py
+templates
+(BOTTOM UP APPROACH)
+
+users - details
+journals - one many - Name, cover page(image upload), password
+pages - one many - title, date, content
+
+
+{
+"email": "neha@gmail.com",
+"password": "Test@123"
+}
+
+{
+"id": 2,
+"email": "nehas@gmail.com",
+"first_name": "Neha",
+"last_name": "Sawant",
+"gender": "Female",
+"mobile_no" : "4545454598",
+"password" : "Test@123",
+"status": 1
+}
+
+{
+"id": 2,
+"journal": 1,
+"name": "Science",
+"cover": "https://img.fotocommunity.com/sunrise-b7f7daa0-231e-4487-b585-a06ae2a75fd1.jpg?height=1080",
+"isset_password": 1,
+"password":"Test@123"
+}
+
+
+{
+        "id": 1,
+        "title": "Pythonista",
+        "content": "I love python",
+        "page": 7
+    }
+
+
+
+{"id": 2,"email": "nehas@gmail.com","first_name": "Neha","last_name": "Sawant","gender": "Female","mobile_no" : "4545454598","password" : "Test@123","status": 1}
